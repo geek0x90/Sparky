@@ -4,7 +4,7 @@
 
   	$users = Array();
 
-  	while($user = $query->fetch_assoc()) {
+  	while($user = $query->fetch_object()) {
   		$users[] = $user;
   	}
 
@@ -14,7 +14,7 @@
   function getUser($id) {
     $query = DB::$mysql->query("SELECT * FROM users WHERE id = '".$id."'");
 
-  	$user = $query->fetch_assoc();
+  	$user = $query->fetch_object();
 
   	return $user;
   }
